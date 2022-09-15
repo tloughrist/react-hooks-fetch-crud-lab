@@ -22,12 +22,13 @@ function App() {
   }
 
   function deleteQuestion(delId) {
-    setQuestionData(questionData.filter((question) => {
-      return question.id !== delId;
-    }))
+    
     fetch(`http://localhost:4000/questions/${delId}`, {
     method: "DELETE",
     })
+    .then(() => {setQuestionData(questionData.filter((question) => {
+      return question.id !== delId;
+    }))})
   
   }
 
